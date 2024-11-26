@@ -1,6 +1,9 @@
 import os
-from src.medCost.utils.common import read_yaml,create_directories
-from src.medCost.entity.config_entity import DataIngestionConfig
+from medCost.utils.common import read_yaml,create_directories
+from medCost.entity.config_entity import DataIngestionConfig
+import pathlib as Path
+
+
 
 class ConfigurationManager:
     def __init__(
@@ -13,3 +16,15 @@ class ConfigurationManager:
 
         create_directories([self.config.artifacts_root])
         
+
+    def get_data_ingestion_config(self) -> DataIngestionConfig:
+        config = self.config.data_ingestion
+
+        create_directories([config.root_dir])
+
+        data_ingestion_config = DataIngestionConfig(
+            root_dir=config.root_dir,
+            local_data_file=config.local_data_file
+        )
+
+        return data_ingestion_config    
