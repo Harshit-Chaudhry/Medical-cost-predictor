@@ -17,3 +17,6 @@ Flask
 Flask-Cors
 gdown
 kagglehub
+fastapi
+uvicorn
+gunicorn
