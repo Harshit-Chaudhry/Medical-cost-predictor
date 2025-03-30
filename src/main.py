@@ -1,7 +1,8 @@
 from fastapi import FastAPI
 import pickle
 import pandas as pd
-from data_model import Medical
+#from data_model import Medical
+from src.data_model import Medical
 
 
 app = FastAPI(
